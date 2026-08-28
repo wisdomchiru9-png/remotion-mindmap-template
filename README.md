@@ -26,6 +26,10 @@ npx remotion render
 npx remotion upgrade
 ```
 
+## Video
+
+[Watch the rendered video](https://drive.google.com/file/d/1PUk-87Ate6FCbHQYPjSTh42KaeCncIRz/view?usp=sharing)
+
 ---
 
 ## How the project fits together
