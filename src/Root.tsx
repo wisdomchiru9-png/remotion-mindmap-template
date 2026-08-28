@@ -3,6 +3,10 @@ import { Composition, Folder, staticFile } from "remotion";
 import { MindmapPin, calculateMindmapDuration } from "./scenes/MindmapPin";
 import { HookCardData } from "./helpers/Card";
 import { Intro } from "./scenes/Intro";
+import { HookTitle } from "./scenes/HookTitle";
+import { StatReveal } from "./scenes/StatReveal";
+import { ClosingCTA } from "./scenes/ClosingCTA";
+import { FinalSequence, FINAL_SEQUENCE_DURATION } from "./scenes/FinalSequence";
 
 export const RemotionRoot: React.FC = () => {
   type Target = {
@@ -132,6 +136,60 @@ export const RemotionRoot: React.FC = () => {
           statLabel: "Harvard Classics",
           badgeColor: "#ff2d78",
         }}
+      />
+
+      <Composition
+        id="HookTitle"
+        // @ts-expect-error Remotion's Composition props are broader than the scene props.
+        component={HookTitle}
+        durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          eyebrow: "ATTENTION IS A CHOICE",
+          title: "What gets your attention gets your life.",
+          subtitle: "A two-minute experiment in focus, drawn from Benjamin Franklin.",
+          highlight: ["attention", "life"],
+        }}
+      />
+
+      <Composition
+        id="StatReveal"
+        // @ts-expect-error Remotion's Composition props are broader than the scene props.
+        component={StatReveal}
+        durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          value: "51",
+          label: "FRANKLIN'S VIRTUES",
+          context: "A small system can make a large life easier to steer.",
+        }}
+      />
+
+      <Composition
+        id="ClosingCTA"
+        // @ts-expect-error Remotion's Composition props are broader than the scene props.
+        component={ClosingCTA}
+        durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "Choose what deserves your attention.",
+          subtitle: "START WITH ONE VIRTUE TODAY",
+        }}
+      />
+
+      <Composition
+        id="Franklin-Attention-Full"
+        component={FinalSequence}
+        durationInFrames={FINAL_SEQUENCE_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
       />
     </Folder>
   );

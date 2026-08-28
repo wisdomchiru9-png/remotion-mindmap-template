@@ -11,7 +11,6 @@ export const Badge: React.FC<{
   endFrame?: number;
 }> = ({
   text,
-  icon = "⚡",
   color = "#ff2d78",
   startFrame = 0,
   endFrame = 150000,

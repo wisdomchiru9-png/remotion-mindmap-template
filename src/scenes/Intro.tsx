@@ -1,9 +1,7 @@
 // scenes/PatternInterrupts.tsx
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Badge } from "../helpers/Badge";
 import { Video, Interactive, staticFile } from "remotion";
-import { CardGrid } from "../helpers/CardGrid";
 import { HookCardData } from "../helpers/Card";
 import { NewImg } from "../helpers/NewImg";
 
@@ -20,11 +18,7 @@ export interface PatternInterruptsProps {
   badgeColor?: string;
 }
 
-export const Intro: React.FC<PatternInterruptsProps> = ({
-  badgeText,
-  cards,
-  badgeColor = "#ff2d78",
-}) => {
+export const Intro: React.FC<PatternInterruptsProps> = () => {
   return (
     <AbsoluteFill style={{ background: "#0a0510", padding: "60px 70px" }}>
       <Interactive.Div

@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  AbsoluteFill,
   Img,
   staticFile,
   useCurrentFrame,
@@ -202,10 +201,6 @@ export const MindmapZoom: React.FC<{
   const translateX = width / 2 - camX * totalScale;
   const translateY = height / 2 - camY * totalScale;
 
-  // Figure out which target's label is currently most relevant, and
-  // fade it in/out around its hold window for a light caption effect.
-  const currentLabel = getCurrentLabel(frame);
-
   return (
     <div
       style={{
@@ -232,42 +227,5 @@ export const MindmapZoom: React.FC<{
     </div>
   );
 };
-
-// ---- Label helper -----------------------------------------------------------------
-
-type LabelWindow = { start: number; end: number; text: string };
-
-function buildLabelWindows(items: Target[]): LabelWindow[] {
-  const windows: LabelWindow[] = [];
-  let t = 0;
-  items.forEach((item, i) => {
-    if (i > 0) t += TRANSITION_SECONDS * FPS;
-    const start = Math.round(t);
-    t += item.holdSeconds * FPS;
-    const end = Math.round(t);
-    windows.push({ start, end, text: item.label });
-  });
-  return windows;
-}
-
-const labelWindows = buildLabelWindows(targets);
-const FADE_FRAMES = 15;
-
-function getCurrentLabel(
-  frame: number,
-): { text: string; opacity: number } | null {
-  for (const w of labelWindows) {
-    if (frame >= w.start - FADE_FRAMES && frame <= w.end + FADE_FRAMES) {
-      const opacity = interpolate(
-        frame,
-        [w.start - FADE_FRAMES, w.start, w.end, w.end + FADE_FRAMES],
-        [0, 1, 1, 0],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      );
-      return { text: w.text, opacity };
-    }
-  }
-  return null;
-}
 
 export default MindmapZoom;

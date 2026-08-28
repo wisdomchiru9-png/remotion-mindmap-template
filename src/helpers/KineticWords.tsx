@@ -13,6 +13,7 @@ export const KineticWords: React.FC<{
   color?: string;
   highlight?: string[];
   highlightColor?: string;
+  style?: React.CSSProperties;
 }> = ({
   text,
   startFrame = 0,
@@ -22,6 +23,7 @@ export const KineticWords: React.FC<{
   color = "#8f8f8f",
   highlight = [],
   highlightColor = COLORS.accent,
+  style,
 }) => {
   const frame = useCurrentFrame();
   const parentOpacity = frame >= endFrame ? 0 : 1;
@@ -38,10 +40,11 @@ export const KineticWords: React.FC<{
         fontFamily: "'Courier New', monospace",
         fontSize,
         fontWeight: 800,
-        translate: "991.3px -166.1px",
-        scale: 1.375,
+        translate: "213.9px -109px",
+        scale: 0.769,
         letterSpacing: "0.3rem",
         opacity: parentOpacity,
+        ...style,
       }}
     >
       {words.map((word, i) => {
