@@ -184,7 +184,7 @@ export const RemotionRoot: React.FC = () => {
       />
 
       <Composition
-        id="Franklin-Attention-Full"
+        id="Franklin-Part-1-Session-Video"
         component={FinalSequence}
         durationInFrames={FINAL_SEQUENCE_DURATION}
         fps={30}
