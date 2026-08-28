@@ -15,16 +15,16 @@ import { UiChrome } from "../helpers/UiChrome";
 
 const FPS = 30;
 const sceneFrames = {
-  hook: 10 * FPS,
-  stat: 10 * FPS,
-  problem: 12 * FPS,
-  mapIntro: 10 * FPS,
-  input: 12 * FPS,
-  practice: 12 * FPS,
-  reflection: 12 * FPS,
-  mapDetail: 12 * FPS,
-  synthesis: 18 * FPS,
-  close: 12 * FPS,
+  hook: 13 * FPS,
+  stat: 13 * FPS,
+  problem: 15 * FPS,
+  mapIntro: 13 * FPS,
+  input: 15 * FPS,
+  practice: 15 * FPS,
+  reflection: 15 * FPS,
+  mapDetail: 15 * FPS,
+  synthesis: 21 * FPS,
+  close: 15 * FPS,
 };
 
 const mapTargets: Target[] = [
