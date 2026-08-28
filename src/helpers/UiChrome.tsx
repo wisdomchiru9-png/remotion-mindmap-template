@@ -37,7 +37,7 @@ export const UiChrome: React.FC<{
         top: 0,
       }}
     >
-      <span style={{ color: COLORS.accentLight }}>FRANKLIN / ATTENTION SYSTEM</span>
+      <span style={{ color: COLORS.accentLight }}>FRANKLIN / FOCUS LAB</span>
       <span>{section}</span>
     </div>
     <div

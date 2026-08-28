@@ -11,6 +11,7 @@ import {
 import { HookTitle } from "./HookTitle";
 import { MindmapPin, Target } from "./MindmapPin";
 import { StatReveal } from "./StatReveal";
+import { UiChrome } from "../helpers/UiChrome";
 
 const FPS = 30;
 const sceneFrames = {
@@ -99,6 +100,7 @@ export const FinalSequence: React.FC = () => {
         durationInFrames={sceneFrames.mapIntro}
       >
         <MindmapPin {...mapProps} />
+        <UiChrome section="MAP / ORIENTATION" index="04-10" />
       </Sequence>
       <Sequence
         from={next(sceneFrames.input)}
@@ -123,6 +125,7 @@ export const FinalSequence: React.FC = () => {
         durationInFrames={sceneFrames.mapDetail}
       >
         <MindmapPin {...mapProps} />
+        <UiChrome section="MAP / PRACTICE" index="08-10" />
       </Sequence>
       <Sequence
         from={next(sceneFrames.synthesis)}

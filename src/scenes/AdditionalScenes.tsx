@@ -4,6 +4,7 @@ import { GlowCard } from "../helpers/GlowCard";
 import { NewImg } from "../helpers/NewImg";
 import { Typewriter } from "../helpers/Typewriter";
 import { COLORS, EASINGS, FONT_FAMILY } from "../helpers/constants";
+import { UiChrome } from "../helpers/UiChrome";
 
 const SceneFrame: React.FC<{ children: React.ReactNode; warm?: boolean }> = ({
   children,
@@ -18,6 +19,7 @@ const SceneFrame: React.FC<{ children: React.ReactNode; warm?: boolean }> = ({
       padding: 120,
     }}
   >
+    <UiChrome section="FIELD NOTES" index="03-09" />
     {children}
   </AbsoluteFill>
 );
