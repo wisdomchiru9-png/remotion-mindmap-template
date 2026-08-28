@@ -2,7 +2,6 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { StatCounter } from "../helpers/StatCounter";
 import { COLORS, FONT_FAMILY } from "../helpers/constants";
-import { UiChrome } from "../helpers/UiChrome";
 
 export interface StatRevealProps {
   value: string;
@@ -29,7 +28,6 @@ export const StatReveal: React.FC<StatRevealProps> = ({
         justifyContent: "center",
       }}
     >
-      <UiChrome section="MEASURE THE MIND" index="02-10" />
       <StatCounter
         value={value}
         label={label}
