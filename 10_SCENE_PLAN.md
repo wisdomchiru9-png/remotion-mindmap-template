@@ -1,22 +1,38 @@
-# Ten-Scene Plan
+# Transcript Scene Plan
 
-This sequence is designed for a two-minute talk about productivity, attention, and Benjamin Franklin. The scene components are intentionally short and reusable; the existing `MindmapPin` composition carries the detailed Franklin map tour.
+This sequence is designed for an 18-scene talk about productivity, attention, and Benjamin Franklin. Each scene corresponds to a grouped meta-instruction from `transcript-template-filled.md`; the text beats use `TranscriptScene`, while the opening, mindmap, and close retain their dedicated visual components.
 
-| Scene | Approx. time | Purpose | Implementation |
-| --- | --- | --- | --- |
-| 1. Hook | 0:00-0:10 | Interrupt the scroll with the central question about attention. | `HookTitle` with a short highlighted phrase. |
-| 2. The number | 0:10-0:20 | Give the audience one memorable attention statistic. | `StatReveal` using `StatCounter`. |
-| 3. The problem | 0:20-0:32 | Show the cost of fragmented attention and establish the tension. | `KineticWords`, `CardGrid`, or a short visual interruption. |
-| 4. Find the map | 0:32-0:42 | Move from the modern problem into Franklin's system. | Reuse `MindmapPin` with a short target list. |
-| 5. Input | 0:42-0:54 | Explain deliberate reading and choosing useful inputs. | `NewImg` with `Transition` or a focused card. |
-| 6. Practice | 0:54-1:06 | Turn Franklin's virtues into a repeatable daily practice. | `CardGrid` with one virtue active at a time. |
-| 7. Reflection | 1:06-1:18 | Create a quiet beat for the audience to connect the ideas to their day. | `Typewriter` or `KineticWords` over a restrained background. |
-| 8. Zoom in | 1:18-1:30 | Reinforce one concrete Franklin idea with visual emphasis. | Reuse `MindmapPin` with a shorter target list. |
-| 9. Synthesis | 1:30-1:48 | Bring productivity and attention back together in one takeaway. | `GlowCard`, `StatCounter`, or a compact custom composition. |
-| 10. Close | 1:48-2:00 | Leave the audience with a clear action and final line. | `ClosingCTA` with `ClosingWalls`. |
+The composition currently uses 18 scenes at six seconds each (108 seconds total):
+
+1. Hook and opening question
+2. The fear of the inverse identity
+3. The hidden enemy
+4. Franklin mindmap introduction
+5. The Three Engines framework
+6. Reframing productivity
+7. Deliberate practice vocabulary
+8. Dominoes 1 and 2
+9. Dominoes 3 and 4
+10. Domino 5 and long-term identity cost
+11. Modern behavior mirror
+12. The wrong solution
+13. Reversing the chain
+14. Step 1: Temperance
+15. Step 2: Deliberate Reconstruction
+16. Step 3: Socratic Inquiry
+17. Franklin mindmap synthesis
+18. Closing action and permanent perspective
+
+| Scene group | Purpose | Implementation |
+| --- | --- | --- |
+| Opening | Establish the hook, fear, hidden enemy, and Franklin's authority. | `HookTitle`, `TranscriptScene`, and `MindmapPin`. |
+| Diagnosis | Reframe productivity, define deliberate practice, and trace the five-domino chain. | `TranscriptScene` with alternating dark and warm backgrounds. |
+| Reversal | Explain why common solutions fail and introduce the three engines. | `TranscriptScene`. |
+| Framework | Show Temperance, Deliberate Reconstruction, and Socratic Inquiry as sequential actions. | `TranscriptScene` plus `MindmapPin`. |
+| Close | Compound the long-term reward and give the viewer one first action. | `ClosingCTA`. |
 
 ## Suggested arc
 
-Scenes 1-3 move quickly and use contrast. Scenes 4-8 slow down for the Franklin mindmap and its practical ideas. Scenes 9-10 compress the message into one takeaway and a final action.
+The first three scenes move quickly and use contrast. The middle scenes slow down for the causal chain and Franklin's methods. The final scenes compress the framework into three actions and a final commitment.
 
 Keep the text on screen sparse: one claim, one image, or one motion idea per scene. Use the existing helpers for entrances and exits so the pacing stays consistent across the sequence.

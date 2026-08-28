@@ -100,7 +100,11 @@ export const DeliberateInputScene: React.FC = () => (
 
 export const VirtuePracticeScene: React.FC = () => {
   const frame = useCurrentFrame();
-  const practices = ["Temperance", "Order", "Industry"];
+  const practices = [
+    "Temperance",
+    "Deliberate Reconstruction",
+    "Socratic Inquiry",
+  ];
   return (
     <SceneFrame>
       <div style={{ width: 1180 }}>
