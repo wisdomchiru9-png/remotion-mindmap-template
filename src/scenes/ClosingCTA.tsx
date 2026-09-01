@@ -35,8 +35,14 @@ export const ClosingCTA: React.FC<ClosingCTAProps> = ({
     extrapolateRight: "clamp",
   });
 
+  // Fade-in effect for title
+  const titleFadeIn = interpolate(localFrame, [0, 15], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
   return (
-    <AbsoluteFill style={{ background: COLORS.bg, alignItems: "center", justifyContent: "center" }}>
+    <AbsoluteFill style={{ background: COLORS.bg, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px", boxSizing: "border-box" }}>
       <UiChrome section="FINAL COMMIT" index="10-10" />
       <ClosingWalls
         frame={localFrame}
@@ -47,12 +53,18 @@ export const ClosingCTA: React.FC<ClosingCTAProps> = ({
       />
       <div
         style={{
-          alignItems: "center",
+          width: "100%",
+          height: "100%",
           display: "flex",
           flexDirection: "column",
-          opacity,
-          padding: 80,
+          alignItems: "center",
+          justifyContent: "center",
+          opacity: Math.min(opacity, titleFadeIn),
+          padding: "40px",
           textAlign: "center",
+          boxSizing: "border-box",
+          maxWidth: 1300,
+          margin: "0 auto",
         }}
       >
         <div
@@ -63,6 +75,10 @@ export const ClosingCTA: React.FC<ClosingCTAProps> = ({
             fontWeight: 800,
             lineHeight: 1.05,
             maxWidth: 1300,
+            wordBreak: "keep-all",
+            overflowWrap: "break-word",
+            whiteSpace: "pre-wrap",
+            width: "100%",
           }}
         >
           {title}
@@ -72,10 +88,14 @@ export const ClosingCTA: React.FC<ClosingCTAProps> = ({
             style={{
               color: COLORS.accentLight,
               fontFamily: "monospace",
-              fontSize: 28,
-              letterSpacing: 2,
-              marginTop: 30,
+              fontSize: 32,
+              letterSpacing: 3,
+              marginTop: 40,
               maxWidth: 900,
+              fontWeight: 700,
+              wordBreak: "keep-all",
+              overflowWrap: "break-word",
+              width: "100%",
             }}
           >
             {subtitle}

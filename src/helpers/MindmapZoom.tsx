@@ -35,7 +35,7 @@ import {
 
 // ---- Image + node configuration -------------------------------------------------
 
-const IMAGE_SRC = staticFile("FSIQ.jpg");
+const IMAGE_SRC = staticFile("Franklin-Mindmap-1.webp");
 
 // Natural pixel dimensions of the source image.
 
@@ -159,8 +159,6 @@ export const MindmapZoom: React.FC<{
   endFrame?: number;
 }> = ({ startFrame = 0, endFrame = 150000 }) => {
   const frame = useCurrentFrame();
-  //const { frames, xs, ys, scales, totalFrames } = buildKeyframes(targets, startFrame);
-  //const TOTAL_DURATION = totalFrames;
   const { width: IMAGE_NATURAL_WIDTH, height: IMAGE_NATURAL_HEIGHT } =
     useVideoConfig();
   let opacityValue = 1;

@@ -8,37 +8,29 @@ export const UiChrome: React.FC<{
 }> = ({ section, index }) => (
   <AbsoluteFill
     style={{
-      color: "rgba(240,236,228,0.58)",
+      color: "rgba(240,236,228,0.72)",
       fontFamily: "monospace",
-      fontSize: 18,
+      fontSize: 16,
       letterSpacing: 2,
       pointerEvents: "none",
     }}
   >
-    <div
-      style={{
-        backgroundImage: `linear-gradient(${COLORS.grid} 1px, transparent 1px), linear-gradient(90deg, ${COLORS.grid} 1px, transparent 1px)`,
-        backgroundSize: "80px 80px",
-        inset: 0,
-        opacity: 0.5,
-        position: "absolute",
-      }}
-    />
+    {/* Removed distracting grid background */}
     <div
       style={{
         alignItems: "center",
-        borderBottom: `1px solid ${COLORS.glassBorder}`,
+        borderBottom: `2px solid ${COLORS.accent}44`,
         display: "flex",
         justifyContent: "space-between",
         left: 70,
-        padding: "28px 0 18px",
+        padding: "32px 0 20px",
         position: "absolute",
         right: 70,
         top: 0,
       }}
     >
-      <span style={{ color: COLORS.accentLight }}>FRANKLIN / FOCUS LAB</span>
-      <span>{section}</span>
+      <span style={{ color: COLORS.accentLight, fontWeight: 700 }}>FRANKLIN / FOCUS LAB</span>
+      <span style={{ fontWeight: 600 }}>{section}</span>
     </div>
     <div
       style={{
@@ -51,8 +43,8 @@ export const UiChrome: React.FC<{
         right: 70,
       }}
     >
-      <span>{index}</span>
-      <span style={{ color: COLORS.accent }}>+ LIVE FOCUS</span>
+      <span style={{ fontWeight: 600 }}>{index}</span>
+      <span style={{ color: COLORS.accent, fontWeight: 700 }}>+ LIVE FOCUS</span>
     </div>
   </AbsoluteFill>
 );

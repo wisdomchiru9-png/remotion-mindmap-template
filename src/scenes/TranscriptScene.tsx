@@ -33,53 +33,97 @@ export const TranscriptScene: React.FC<TranscriptSceneProps> = ({
     extrapolateRight: "clamp",
   });
 
+  // Fade-in effect for readable text entry
+  const contentOpacity = interpolate(frame, [0, 15], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
   return (
     <AbsoluteFill
       style={{
-        alignItems: align === "center" ? "center" : "flex-start",
         background: warm ? COLORS.bgWarm : COLORS.bg,
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         overflow: "hidden",
-        padding: "0 150px",
-        textAlign: align,
+        padding: "100px 80px",
       }}
     >
+      {/* Removed distracting grid pattern for cleaner look */}
+      
+      {/* Left accent bar */}
+      <div
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          bottom: 0,
+          width: 4,
+          background: `linear-gradient(180deg, ${COLORS.accent} 0%, ${COLORS.accent}33 100%)`,
+        }}
+      />
+      
       <UiChrome section={section} index={index} />
-      <div style={{ maxWidth: 1250 }}>
+      <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 2, opacity: contentOpacity, boxSizing: "border-box" }}>
         <div
           style={{
+            width: "100%",
             color: COLORS.accentLight,
             fontFamily: "monospace",
-            fontSize: 22,
+            fontSize: 18,
             fontWeight: 700,
-            letterSpacing: 4,
-            marginBottom: 28,
+            letterSpacing: 3,
+            marginBottom: 40,
+            textTransform: "uppercase",
+            display: "flex",
+            alignItems: "center",
+            gap: 12,
+            justifyContent: "flex-start",
           }}
         >
-          {section}
+          <div style={{ width: 40, height: 2, background: COLORS.accent, flexShrink: 0 }} />
+          <span style={{ wordBreak: "keep-all" }}>{section}</span>
         </div>
-        <Typewriter
-          text={title}
-          startFrame={4}
-          speed={2.2}
-          fontSize={70}
-          color={COLORS.text}
-          highlight={["attention", "capability", "Franklin", "Temperance", "reconstruct", "questions"]}
-          highlightColor={COLORS.accent}
-          align={align}
-          pauseAfter={["attention", "skills", "chain"]}
-        />
         <div
           style={{
-            color: "rgba(240,236,228,0.68)",
+            width: "100%",
+            background: `rgba(255, 107, 43, 0.08)`,
+            border: `3px solid ${COLORS.accent}`,
+            borderRadius: 16,
+            padding: "40px 50px",
+            marginBottom: 40,
+            boxSizing: "border-box",
+          }}
+        >
+          <Typewriter
+            text={title}
+            startFrame={4}
+            speed={2.2}
+            fontSize={56}
+            color={COLORS.text}
+            highlight={["attention", "capability", "Franklin", "Temperance", "reconstruct", "questions"]}
+            highlightColor={COLORS.accent}
+            align={align}
+            pauseAfter={["attention", "skills", "chain"]}
+          />
+        </div>
+        <div
+          style={{
+            width: "100%",
+            color: "rgba(240,236,228,0.85)",
             fontFamily: FONT_FAMILY,
-            fontSize: 30,
-            lineHeight: 1.35,
-            marginTop: 34,
-            maxWidth: 1020,
+            fontSize: 26,
+            lineHeight: 1.9,
+            maxWidth: 1100,
             opacity: bodyOpacity,
             transform: `translateY(${bodyY}px)`,
+            wordBreak: "keep-all",
+            overflowWrap: "break-word",
+            whiteSpace: "pre-wrap",
+            paddingLeft: 30,
+            borderLeft: `4px solid ${COLORS.accent}`,
+            boxSizing: "border-box",
           }}
         >
           {body}

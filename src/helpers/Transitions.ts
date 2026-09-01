@@ -47,9 +47,11 @@ export const Transition = ({
   startFrame = 0,
   endFrame = 150000,
   duration = 30,
+  finalOpacity = 0,
   slideDistance = 60,
   zoomAmount = 1.15,
   rotateAmount = 150,
+  style,
 }: TransitionProps) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
@@ -62,11 +64,20 @@ export const Transition = ({
       extrapolateRight: "clamp",
     });
 
-  // opacity: wipes/iris don't need fade since they're masked; everything else fades
-
   let transform = "";
   let clipPath: string | undefined;
   let filter = "none";
+  const isMasked = animation.startsWith("wipe") || animation === "irisIn";
+  const fadeIn = interpolate(frame, [startFrame, startFrame + duration], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const fadeOut = interpolate(
+    frame,
+    [Math.max(startFrame, endFrame - duration), endFrame],
+    [1, finalOpacity],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+  );
 
   switch (animation) {
     case "fadeSlideUp":
@@ -196,8 +207,12 @@ export const Transition = ({
   }
 
   return {
+    ...style,
     transform: transform,
     filter: filter,
     clipPath: clipPath,
+    opacity: isMasked
+      ? style?.opacity
+      : (typeof style?.opacity === "number" ? style.opacity : 1) * fadeIn * fadeOut,
   };
 };

@@ -1,9 +1,6 @@
 import React from "react";
-import { interpolate } from "remotion";
-import { COLORS, EASINGS } from "./constants";
-import { useCurrentFrame } from "remotion";
-import { Interactive } from "remotion";
-//pops each word in with scale/bounce instead of typing char-by-char. Good for hooks where you want impact in under a second rather than a slow reveal.
+import { interpolate, useCurrentFrame } from "remotion";
+import { COLORS, EASINGS, FONT_FAMILY } from "./constants";
 export const KineticWords: React.FC<{
   text: string;
   startFrame?: number;
@@ -31,19 +28,19 @@ export const KineticWords: React.FC<{
   const localFrame = frame - startFrame;
 
   return (
-    <Interactive.Div
+    <div
       style={{
         display: "flex",
         flexWrap: "wrap",
         gap: "0 14px",
         color: "#8f8f8f",
-        fontFamily: "'Courier New', monospace",
+        fontFamily: FONT_FAMILY,
         fontSize,
         fontWeight: 800,
-        translate: "213.9px -109px",
-        scale: 0.769,
         letterSpacing: "0.3rem",
         opacity: parentOpacity,
+        lineHeight: 1.2,
+        maxWidth: 1200,
         ...style,
       }}
     >
@@ -88,6 +85,6 @@ export const KineticWords: React.FC<{
           </span>
         );
       })}
-    </Interactive.Div>
+    </div>
   );
 };

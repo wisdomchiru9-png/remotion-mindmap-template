@@ -32,66 +32,100 @@ export const HookTitle: React.FC<HookTitleProps> = ({
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const visible = frame < endFrame;
+
+  // Fade-in effect for title entrance
+  const titleFadeIn = interpolate(localFrame, [0, 15], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   return (
     <AbsoluteFill
       style={{
         background: COLORS.bg,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
         justifyContent: "center",
-        padding: "0 150px",
-        opacity: visible ? 1 : 0,
+        padding: "100px 80px",
+        overflow: "hidden",
+        boxSizing: "border-box",
       }}
     >
-      <UiChrome section="OPENING SIGNAL" index="01-10" />
-      {eyebrow ? (
-        <div
-          style={{
-            color: COLORS.accentLight,
-            fontFamily: "monospace",
-            fontSize: 24,
-            fontWeight: 700,
-            letterSpacing: 4,
-            marginBottom: 22,
-            textTransform: "uppercase",
-          }}
-        >
-          {eyebrow}
-        </div>
-      ) : null}
-      <KineticWords
-        text={title}
-        startFrame={startFrame}
-        endFrame={endFrame}
-        fontSize={92}
-        color={COLORS.text}
-        highlight={highlight}
-        highlightColor={COLORS.accent}
-        wordDelay={5}
+      {/* Subtle accent gradient for visual interest */}
+      <div
         style={{
-          alignSelf: "flex-start",
-          letterSpacing: 0,
-          maxWidth: 1320,
-          scale: 1,
-          translate: "0 0",
+          position: "absolute",
+          inset: 0,
+          background: `radial-gradient(circle at 80% 50%, ${COLORS.accent}20 0%, transparent 60%)`,
+          opacity: 0.3,
+          pointerEvents: "none",
         }}
       />
-      {subtitle ? (
-        <div
-          style={{
-            color: "rgba(240,236,228,0.68)",
-            fontFamily: FONT_FAMILY,
-            fontSize: 32,
-            lineHeight: 1.3,
-            marginTop: 34,
-            maxWidth: 1050,
-            opacity: subtitleOpacity,
-            transform: `translateY(${subtitleY}px)`,
-          }}
-        >
-          {subtitle}
+      
+      <UiChrome section="OPENING SIGNAL" index="01-10" />
+      <div style={{ position: "relative", zIndex: 2, maxWidth: 1320, width: "100%", margin: "0 auto", opacity: titleFadeIn, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxSizing: "border-box", padding: "0 40px" }}>
+        {eyebrow ? (
+          <div
+            style={{
+              width: "100%",
+              color: COLORS.accentLight,
+              fontFamily: "monospace",
+              fontSize: 20,
+              fontWeight: 700,
+              letterSpacing: 4,
+              marginBottom: 32,
+              textTransform: "uppercase",
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              justifyContent: "center",
+            }}
+          >
+            <div style={{ width: 40, height: 2, background: COLORS.accent, flexShrink: 0 }} />
+            <span style={{ wordBreak: "keep-all" }}>{eyebrow}</span>
+          </div>
+        ) : null}
+        <div style={{ marginBottom: 32 }}>
+          <KineticWords
+            text={title}
+            startFrame={startFrame}
+            endFrame={endFrame}
+            fontSize={82}
+            color={COLORS.text}
+            highlight={highlight}
+            highlightColor={COLORS.accent}
+            wordDelay={5}
+            style={{
+              letterSpacing: "-0.02em",
+              maxWidth: 1320,
+              wordBreak: "keep-all",
+              overflowWrap: "break-word",
+            }}
+          />
         </div>
-      ) : null}
+        {subtitle ? (
+          <div
+            style={{
+              color: "rgba(240,236,228,0.88)",
+              fontFamily: FONT_FAMILY,
+              fontSize: 30,
+              lineHeight: 1.6,
+              maxWidth: 1100,
+              opacity: subtitleOpacity,
+              transform: `translateY(${subtitleY}px)`,
+              paddingLeft: 30,
+              borderLeft: `4px solid ${COLORS.accent}`,
+              fontWeight: 400,
+              wordBreak: "keep-all",
+              overflowWrap: "break-word",
+              whiteSpace: "pre-wrap",
+            }}
+          >
+            {subtitle}
+          </div>
+        ) : null}
+      </div>
     </AbsoluteFill>
   );
 };

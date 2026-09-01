@@ -1,6 +1,6 @@
 import React from "react";
-import { COLORS } from "./constants";
-import { Interactive, useCurrentFrame } from "remotion";
+import { COLORS, FONT_FAMILY } from "./constants";
+import { useCurrentFrame } from "remotion";
 interface AnimatedTextProps {
   frame?: number;
   text: string;
@@ -81,46 +81,41 @@ export function Typewriter({
 
   const segments = splitWithHighlights(textToShow, highlight);
   return (
-    <>
-      <Interactive.Div
-        style={{
-          fontFamily: "sans-serif",
-          fontSize,
-          color,
-          textAlign: align,
-          translate: "129px 151.3px",
-          scale: 1.152,
-          opacity: parentOpacity,
-          rotate: "-0.2deg",
-          height: "100px",
-          width: "600px",
-        }}
-        from={-2}
-      >
-        {segments.map((seg, i) => (
-          <span
-            key={i}
-            style={{
-              color: seg.highlighted ? highlightColor : color,
-              fontWeight: seg.highlighted ? 700 : 400,
-            }}
-          >
-            {seg.text}
-          </span>
-        ))}
+    <div
+      style={{
+        fontFamily: FONT_FAMILY,
+        fontSize,
+        color,
+        textAlign: align,
+        opacity: parentOpacity,
+        lineHeight: 1.2,
+        wordWrap: "break-word",
+        overflowWrap: "break-word",
+      }}
+    >
+      {segments.map((seg, i) => (
         <span
+          key={i}
           style={{
-            display: "inline-block",
-            width: 3,
-            height: fontSize * 1.15,
-            backgroundColor: cursorColor, // was hardcoded "black" — invisible on dark bg
-            verticalAlign: "middle",
-            marginLeft: 4,
-            opacity: Number(cursorShown),
+            color: seg.highlighted ? highlightColor : color,
+            fontWeight: seg.highlighted ? 700 : 400,
           }}
-        />
-      </Interactive.Div>
-    </>
+        >
+          {seg.text}
+        </span>
+      ))}
+      <span
+        style={{
+          display: "inline-block",
+          width: 3,
+          height: fontSize * 1.15,
+          backgroundColor: cursorColor,
+          verticalAlign: "middle",
+          marginLeft: 4,
+          opacity: Number(cursorShown),
+        }}
+      />
+    </div>
   );
 }
 
