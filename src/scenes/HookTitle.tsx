@@ -57,14 +57,14 @@ export const HookTitle: React.FC<HookTitleProps> = ({
         style={{
           position: "absolute",
           inset: 0,
-          background: `radial-gradient(circle at 80% 50%, ${COLORS.accent}20 0%, transparent 60%)`,
-          opacity: 0.3,
+          background: `radial-gradient(circle at 20% 50%, ${COLORS.accent}15 0%, transparent 50%)`,
+          opacity: 0.15,
           pointerEvents: "none",
         }}
       />
       
       <UiChrome section="OPENING SIGNAL" index="01-10" />
-      <div style={{ position: "relative", zIndex: 2, maxWidth: 1320, width: "100%", margin: "0 auto", opacity: titleFadeIn, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxSizing: "border-box", padding: "0 40px" }}>
+      <div style={{ position: "relative", zIndex: 2, maxWidth: "100%", width: "100%", margin: "0 auto", opacity: titleFadeIn, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxSizing: "border-box", padding: "0 80px" }}>
         {eyebrow ? (
           <div
             style={{
@@ -98,9 +98,10 @@ export const HookTitle: React.FC<HookTitleProps> = ({
             wordDelay={5}
             style={{
               letterSpacing: "-0.02em",
-              maxWidth: 1320,
+              maxWidth: "100%",
               wordBreak: "keep-all",
               overflowWrap: "break-word",
+              justifyContent: "center",
             }}
           />
         </div>

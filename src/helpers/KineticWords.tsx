@@ -40,7 +40,8 @@ export const KineticWords: React.FC<{
         letterSpacing: "0.3rem",
         opacity: parentOpacity,
         lineHeight: 1.2,
-        maxWidth: 1200,
+        maxWidth: "100%",
+        width: "100%",
         ...style,
       }}
     >
