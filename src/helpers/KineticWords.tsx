@@ -30,9 +30,8 @@ export const KineticWords: React.FC<{
   return (
     <div
       style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "0 14px",
+        display: "block",
+        textAlign: "center",
         color: "#8f8f8f",
         fontFamily: FONT_FAMILY,
         fontSize,
@@ -42,6 +41,7 @@ export const KineticWords: React.FC<{
         lineHeight: 1.2,
         maxWidth: "100%",
         width: "100%",
+        wordSpacing: "0.2em",
         ...style,
       }}
     >

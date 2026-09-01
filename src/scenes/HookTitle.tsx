@@ -47,7 +47,7 @@ export const HookTitle: React.FC<HookTitleProps> = ({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "100px 80px",
+        padding: "100px 40px",
         overflow: "hidden",
         boxSizing: "border-box",
       }}
@@ -64,7 +64,7 @@ export const HookTitle: React.FC<HookTitleProps> = ({
       />
       
       <UiChrome section="OPENING SIGNAL" index="01-10" />
-      <div style={{ position: "relative", zIndex: 2, maxWidth: "100%", width: "100%", margin: "0 auto", opacity: titleFadeIn, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxSizing: "border-box", padding: "0 80px" }}>
+      <div style={{ position: "relative", zIndex: 2, maxWidth: "100%", width: "100%", margin: "0 auto", opacity: titleFadeIn, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxSizing: "border-box" }}>
         {eyebrow ? (
           <div
             style={{
@@ -99,7 +99,7 @@ export const HookTitle: React.FC<HookTitleProps> = ({
             style={{
               letterSpacing: "-0.02em",
               maxWidth: "100%",
-              wordBreak: "keep-all",
+              wordBreak: "normal",
               overflowWrap: "break-word",
               justifyContent: "center",
             }}

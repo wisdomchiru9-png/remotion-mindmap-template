@@ -128,7 +128,9 @@ const scenes: SceneDefinition[] = [
 const sceneFrames = scenes.map((_, index) => {
   if (index === scenes.length - 1) {
     // Ensure the final scene has at least the standard duration (don't cut it short)
-    const remainingFrames = NARRATION_DURATION_IN_FRAMES - STANDARD_SCENE_FRAMES * (scenes.length - 1);
+    const remainingFrames =
+      NARRATION_DURATION_IN_FRAMES -
+      STANDARD_SCENE_FRAMES * (scenes.length - 1);
     return Math.max(remainingFrames, STANDARD_SCENE_FRAMES);
   }
   return STANDARD_SCENE_FRAMES;
@@ -206,6 +208,7 @@ export const FinalSequence: React.FC = () => {
             style={{
               scale: 0.997,
             }}
+            hidden
           >
             <SceneTransition index={index}>{content}</SceneTransition>
           </Sequence>
