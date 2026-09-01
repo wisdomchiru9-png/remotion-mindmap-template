@@ -64,7 +64,7 @@ export const HookTitle: React.FC<HookTitleProps> = ({
       />
       
       <UiChrome section="OPENING SIGNAL" index="01-10" />
-      <div style={{ position: "relative", zIndex: 2, maxWidth: "100%", width: "100%", margin: "0 auto", opacity: titleFadeIn, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxSizing: "border-box" }}>
+      <div style={{ position: "relative", zIndex: 2, maxWidth: "100%", width: "100%", margin: "0 auto", opacity: titleFadeIn, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxSizing: "border-box", padding: "0 24px" }}>
         {eyebrow ? (
           <div
             style={{
@@ -91,7 +91,7 @@ export const HookTitle: React.FC<HookTitleProps> = ({
             text={title}
             startFrame={startFrame}
             endFrame={endFrame}
-            fontSize={82}
+            fontSize={72}
             color={COLORS.text}
             highlight={highlight}
             highlightColor={COLORS.accent}
@@ -99,6 +99,7 @@ export const HookTitle: React.FC<HookTitleProps> = ({
             style={{
               letterSpacing: "-0.02em",
               maxWidth: "100%",
+              width: "100%",
               wordBreak: "normal",
               overflowWrap: "break-word",
               justifyContent: "center",
