@@ -44,17 +44,72 @@ const allIncludedImageAssets = [
 const finalPortrait = photoAssets.finalPortrait;
 
 const sceneImages: Record<number, string[]> = {
-  0: [...allIncludedImageAssets],
-  1: [...allIncludedImageAssets],
-  2: [...allIncludedImageAssets],
-  3: [...allIncludedImageAssets],
-  4: [...allIncludedImageAssets],
-  5: [...allIncludedImageAssets],
-  6: [...allIncludedImageAssets],
-  7: [...allIncludedImageAssets],
-  8: [...allIncludedImageAssets],
-  9: [...allIncludedImageAssets],
-  10: [finalPortrait, ...allIncludedImageAssets.slice(0, 8)],
+  0: [
+    staticFile("reality.png"),
+    staticFile("Untitled.jpg"),
+    staticFile("books.png"),
+    staticFile("ben-franklin.jpg"),
+  ],
+  1: [
+    staticFile("Mindmap.png"),
+    staticFile("Franklin-Mindmap-1.webp"),
+    staticFile("google-scholar.png"),
+    staticFile("harvard.webp"),
+  ],
+  2: [
+    staticFile("books.png"),
+    staticFile("Intro-books-read-b4-die.png"),
+    staticFile("Untitled.jpg"),
+    staticFile("logo.jpg"),
+  ],
+  3: [
+    staticFile("ben-franklin.jpg"),
+    staticFile("ben.jpg"),
+    staticFile("books.png"),
+    staticFile("Franklin-Mindmap-1.webp"),
+  ],
+  4: [
+    staticFile("reality.png"),
+    staticFile("Untitled.jpg"),
+    staticFile("books.png"),
+    staticFile("logo-removebg-preview.png"),
+  ],
+  5: [
+    staticFile("Mindmap.png"),
+    staticFile("Franklin-Mindmap-1.webp"),
+    staticFile("harvard.webp"),
+    staticFile("google-scholar.png"),
+  ],
+  6: [
+    staticFile("ben.jpg"),
+    staticFile("reality.png"),
+    staticFile("books.png"),
+    staticFile("logo.jpg"),
+  ],
+  7: [
+    staticFile("Intro-books-read-b4-die.png"),
+    staticFile("books.png"),
+    staticFile("reality.png"),
+    staticFile("harvard.webp"),
+  ],
+  8: [
+    staticFile("Mindmap.png"),
+    staticFile("Franklin-Mindmap-1.webp"),
+    staticFile("logo-removebg-preview.png"),
+    staticFile("harvard-removebg-preview.svg"),
+  ],
+  9: [
+    staticFile("reality.png"),
+    staticFile("Mindmap.png"),
+    staticFile("books.png"),
+    staticFile("logo.jpg"),
+  ],
+  10: [
+    finalPortrait,
+    staticFile("ben-franklin.jpg"),
+    staticFile("Franklin-Mindmap-1.webp"),
+    staticFile("harvard.webp"),
+  ],
 };
 
 const SCENES = [
